@@ -1,4 +1,4 @@
-package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller;
+package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller.inteface;
 
 
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.reponse.TopicResponse;
@@ -10,7 +10,7 @@ import jakarta.jws.WebService;
 import java.util.List;
 
 @WebService
-public interface TopicFunctions {
+public interface TopicWS {
 
     public @WebResult TopicResponse addTopic(@WebParam TopicRequest topicRequest);
     public @WebResult List<TopicResponse> getTopics();

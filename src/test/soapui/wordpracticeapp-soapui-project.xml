@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="6fca6594-df6d-4ddd-accc-6da2466e353f" activeEnvironment="Default" name="wordpracticeapp" resourceRoot="" soapui-version="5.8.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="21e1d72e-ee2a-46f6-bec4-37408d0a0dfc" wsaVersion="NONE" name="TopicWSImplServiceSoapBinding" type="wsdl" bindingName="{http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/}TopicWSImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/wordpractice/wordpracticeapp?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/wordpractice/wordpracticeapp?wsdl"><con:part><con:url>http://localhost:8080/wordpractice/wordpracticeapp?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="TopicWSImplService" targetNamespace="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
+  <wsdl:import location="http://localhost:8080/wordpractice/wordpracticeapp?wsdl=TopicWS.wsdl" namespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/"></wsdl:import>
+  <wsdl:binding name="TopicWSImplServiceSoapBinding" type="ns1:TopicWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addTopic">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addTopic">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addTopicResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTopic">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteTopic">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteTopicResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOneTopic">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getOneTopic">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOneTopicResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopics">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTopics">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTopicsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTopic">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateTopic">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateTopicResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TopicWSImplService">
+    <wsdl:port binding="tns:TopicWSImplServiceSoapBinding" name="TopicWSImplPort">
+      <soap:address location="http://localhost:8080/wordpractice/wordpracticeapp"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/wordpractice/wordpracticeapp?wsdl=TopicWS.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="TopicWS" targetNamespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
+      <xs:element name="TopicResponse" type="tns:topicResponse"/>
+      <xs:element name="addTopic" type="tns:addTopic"/>
+      <xs:element name="addTopicResponse" type="tns:addTopicResponse"/>
+      <xs:element name="deleteTopic" type="tns:deleteTopic"/>
+      <xs:element name="deleteTopicResponse" type="tns:deleteTopicResponse"/>
+      <xs:element name="getOneTopic" type="tns:getOneTopic"/>
+      <xs:element name="getOneTopicResponse" type="tns:getOneTopicResponse"/>
+      <xs:element name="getTopics" type="tns:getTopics"/>
+      <xs:element name="getTopicsResponse" type="tns:getTopicsResponse"/>
+      <xs:element name="topicRequest" type="tns:topicRequest"/>
+      <xs:element name="updateTopic" type="tns:updateTopic"/>
+      <xs:element name="updateTopicResponse" type="tns:updateTopicResponse"/>
+      <xs:complexType name="addTopic">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:topicRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="topicRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addTopicResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:topicResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="topicResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="topicId" type="xs:long"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteTopic">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="topicId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteTopicResponse">
+        <xs:sequence>
+          <xs:element name="deleteResult" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOneTopic">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="topicId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOneTopicResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:topicResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getTopics">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getTopicsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:topicResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateTopic">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:topicRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateTopicResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:topicResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addTopic">
+    <wsdl:part element="ns1:addTopic" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addTopicResponse">
+    <wsdl:part element="ns1:addTopicResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteTopic">
+    <wsdl:part element="ns1:deleteTopic" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTopics">
+    <wsdl:part element="ns1:getTopics" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateTopic">
+    <wsdl:part element="ns1:updateTopic" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteTopicResponse">
+    <wsdl:part element="ns1:deleteTopicResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateTopicResponse">
+    <wsdl:part element="ns1:updateTopicResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTopicsResponse">
+    <wsdl:part element="ns1:getTopicsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOneTopic">
+    <wsdl:part element="ns1:getOneTopic" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOneTopicResponse">
+    <wsdl:part element="ns1:getOneTopicResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TopicWS">
+    <wsdl:operation name="addTopic">
+      <wsdl:input message="ns1:addTopic" name="addTopic"></wsdl:input>
+      <wsdl:output message="ns1:addTopicResponse" name="addTopicResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTopic">
+      <wsdl:input message="ns1:deleteTopic" name="deleteTopic"></wsdl:input>
+      <wsdl:output message="ns1:deleteTopicResponse" name="deleteTopicResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOneTopic">
+      <wsdl:input message="ns1:getOneTopic" name="getOneTopic"></wsdl:input>
+      <wsdl:output message="ns1:getOneTopicResponse" name="getOneTopicResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopics">
+      <wsdl:input message="ns1:getTopics" name="getTopics"></wsdl:input>
+      <wsdl:output message="ns1:getTopicsResponse" name="getTopicsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTopic">
+      <wsdl:input message="ns1:updateTopic" name="updateTopic"></wsdl:input>
+      <wsdl:output message="ns1:updateTopicResponse" name="updateTopicResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/wordpractice/wordpracticeapp</con:endpoint></con:endpoints><con:operation id="54c4527f-b26c-4f5c-a471-cfef671ae168" isOneWay="false" action="" name="addTopic" bindingOperationName="addTopic" type="Request-Response" outputName="addTopicResponse" inputName="addTopic" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c72379aa-0d85-4913-9cf1-e60e324c4092" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/wordpracticeapp</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <int:addTopic>\r
+         <!--Optional:-->\r
+         <arg0>\r
+       
+            <name>gAMES</name>\r
+         </arg0>\r
+      </int:addTopic>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/TopicWS/addTopic"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="0a600817-2349-4d03-9cde-2e7f0016e271" isOneWay="false" action="" name="deleteTopic" bindingOperationName="deleteTopic" type="Request-Response" outputName="deleteTopicResponse" inputName="deleteTopic" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5ea066ff-0485-4a0d-a6d5-834b89486c38" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/wordpracticeapp</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <int:deleteTopic>\r
+         <!--Optional:-->\r
+         <topicId>?</topicId>\r
+      </int:deleteTopic>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/TopicWS/deleteTopic"/></con:call></con:operation><con:operation id="f32cbd06-e0b9-460c-aaca-e27e00a9f1e1" isOneWay="false" action="" name="getOneTopic" bindingOperationName="getOneTopic" type="Request-Response" outputName="getOneTopicResponse" inputName="getOneTopic" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="13b03d0d-8f74-49fe-80dd-bd0520d73e1b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/wordpracticeapp</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <int:getOneTopic>\r
+         <!--Optional:-->\r
+         <topicId>7</topicId>\r
+      </int:getOneTopic>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/TopicWS/getOneTopic"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="f8514773-0314-4b97-9999-b4b3f1b2e1b3" isOneWay="false" action="" name="getTopics" bindingOperationName="getTopics" type="Request-Response" outputName="getTopicsResponse" inputName="getTopics" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8acbcc83-1bd0-4694-a21e-b44734a9ac93" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/wordpracticeapp</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <int:getTopics/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/TopicWS/getTopics"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="45802c7b-8e6a-47ae-8da9-30c57eb42623" isOneWay="false" action="" name="updateTopic" bindingOperationName="updateTopic" type="Request-Response" outputName="updateTopicResponse" inputName="updateTopic" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="01990973-6ce5-4244-a215-a4d8b779bd7a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/wordpracticeapp</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <int:updateTopic>\r
+         <!--Optional:-->\r
+         <arg0>\r
+            <!--Optional:-->\r
+            <id>7</id>\r
+            <!--Optional:-->\r
+            <name>Games</name>\r
+         </arg0>\r
+      </int:updateTopic>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/TopicWS/updateTopic"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

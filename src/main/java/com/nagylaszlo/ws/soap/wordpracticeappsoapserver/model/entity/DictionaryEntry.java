@@ -1,27 +1,19 @@
 package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @Entity
-public class Topic {
+public class DictionaryEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
-    private List<DictionaryEntry> dictionaryEntryList;
+    private String word;
+    private String translation;
+    @ManyToOne
+    @JoinColumn(name = "topic_id")
+    private Topic topic;
 }
-
-
-
-
-
-
-
