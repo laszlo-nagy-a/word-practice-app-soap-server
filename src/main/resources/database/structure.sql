@@ -1,0 +1,6 @@
+CREATE DATABASE word_practice CHARACTER SET utf8mb4;
+
+CREATE TABLE topic(
+    name varchar(255) NOT NULL,
+    id BIGINT PRIMARY KEY AUTO_INCREMENT
+)
