@@ -14,7 +14,7 @@ public interface TopicFunctions {
 
     public @WebResult TopicResponse addTopic(@WebParam TopicRequest topicRequest);
     public @WebResult List<TopicResponse> getTopics();
-    public @WebResult TopicResponse getOneTopic(@WebParam Long topicId);
+    public @WebResult TopicResponse getOneTopic(@WebParam(name = "topicId") Long topicId);
     public @WebResult TopicResponse updateTopic(@WebParam TopicRequest topicRequest);
-    public @WebResult boolean deleteTopic(@WebParam Long topicId);
+    public @WebResult(name = "deleteResult") boolean deleteTopic(@WebParam(name = "topicId") Long topicId);
 }

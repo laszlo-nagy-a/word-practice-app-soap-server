@@ -4,9 +4,12 @@ import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity.Topic;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.reponse.TopicResponse;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.request.TopicRequest;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.repository.TopicRepository;
+import io.micrometer.common.util.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TopicService {
@@ -22,47 +25,99 @@ public class TopicService {
             throw new IllegalArgumentException("The topic request must not be null");
         }
 
-        if (topicRequest.getName() == null) {
-            throw new IllegalArgumentException("The topic name must not be null");
+        if (StringUtils.isBlank(topicRequest.getName())) {
+            throw new IllegalArgumentException("The topic name must not be null or emtpy");
         }
 
+        if(isExist(topicRequest)) {
+            throw new IllegalArgumentException("The topic already exists");
+        }
 
         Topic topic = new Topic();
         topic.setName(topicRequest.getName());
-
         Topic savedTopic = topicRepository.save(topic);
-        TopicResponse topicResponse = new TopicResponse();
-
-        topicResponse.setName(savedTopic.getName());
-        topicResponse.setTopicId(savedTopic.getId());
+        TopicResponse topicResponse = new TopicResponse(savedTopic.getId(), savedTopic.getName());
 
         return topicResponse;
     }
 
-    //TODO: create get all with JPA
     public List<TopicResponse> getAll() {
-        return null;
-    }
+        List<Topic> allTopic = topicRepository.findAll();
 
-    // TODO: create get one with JPA
+        if(allTopic == null || allTopic.isEmpty()) {
+            throw new IllegalArgumentException("The topic list is empty");
+        }
+
+        List<TopicResponse> topicResponseList = new ArrayList<>();
+
+        allTopic.forEach(
+                topic ->
+                topicResponseList.add(new TopicResponse(topic.getId(), topic.getName())
+                )
+        );
+
+        return topicResponseList;
+    }
+    // TODO: type exception handling marshalling
     public TopicResponse get(Long topicId) {
-        return null;
-    }
+        if(Optional.ofNullable(topicId).isEmpty()) {
+            throw new IllegalArgumentException("The topic id must not be null");
+        }
 
-    // TODO: update topic with JPA
+        Optional<Topic> topicFound = topicRepository.findById(topicId);
+
+        if(topicFound.isEmpty()) {
+            throw new IllegalArgumentException("The topic is not found");
+        }
+
+        Topic topic = topicFound.get();
+
+        TopicResponse response = new TopicResponse(topic.getId(), topic.getName());
+
+        return response;
+    }
+    // TODO: type exception handling marshalling
     public TopicResponse update(TopicRequest topicRequest) {
         if(topicRequest == null) {
             throw new IllegalArgumentException("The topic request must not be null");
         }
 
-        if(topicRequest.getName() == null) {
-            throw new IllegalArgumentException("The topic name must not be null");
+        if(StringUtils.isBlank(topicRequest.getName())) {
+            throw new IllegalArgumentException("The topic name must not be null or emtpy");
         }
 
-        if(topicRequest.getId() == null) {
+        Optional<Topic> foundTopic = topicRepository.findById(topicRequest.getId());
+
+        if(foundTopic.isEmpty()) {
+            throw new IllegalArgumentException("The topic does not exist");
+        }
+
+        Topic topic = foundTopic.get();
+        if(topic.getName().equals(topicRequest.getName())) {
+            throw new IllegalArgumentException("The topic cannot updated with the same name");
+        }
+
+        topic.setName(topicRequest.getName());
+        Topic savedTopic = topicRepository.save(topic);
+
+        return new TopicResponse(savedTopic.getId(), savedTopic.getName());
+    }
+
+    public boolean delete(Long topicId) {
+        if(Optional.ofNullable(topicId).isEmpty()) {
             throw new IllegalArgumentException("The topic id must not be null");
         }
 
-        return null;
+        if(topicRepository.findById(topicId).isPresent()) {
+            topicRepository.deleteById(topicId);
+            return true;
+        }
+
+        return false;
     }
+
+    private Boolean isExist(TopicRequest topicRequest) {
+        return topicRepository.findByName(topicRequest.getName()).isPresent();
+    }
+
 }

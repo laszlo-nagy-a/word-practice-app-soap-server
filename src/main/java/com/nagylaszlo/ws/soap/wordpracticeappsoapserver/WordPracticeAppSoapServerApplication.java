@@ -8,5 +8,6 @@ public class WordPracticeAppSoapServerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WordPracticeAppSoapServerApplication.class, args);
-	}
+
+    }
 }

@@ -38,6 +38,6 @@ public class TopicController implements TopicFunctions {
 
     @Override
     public boolean deleteTopic(Long topicId) {
-        return false;
+        return topicService.delete(topicId);
     }
 }
