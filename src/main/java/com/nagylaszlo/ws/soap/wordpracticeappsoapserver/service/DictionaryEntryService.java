@@ -159,9 +159,18 @@ public class DictionaryEntryService {
         );
     }
 
+    public boolean delete(Long dictionaryEntryid) {
+        if(Optional.ofNullable(dictionaryEntryid).isEmpty()) {
+            throw new IllegalArgumentException("The dictionaryEntryid cannot be null");
+        }
 
+        if(dictionaryEntryRepository.findById(dictionaryEntryid).isPresent()) {
+            dictionaryEntryRepository.deleteById(dictionaryEntryid);
+            return true;
+        }
 
-
+        return false;
+    }
     /*
     public DictionaryEntryResponse getOneDictionaryEntry(Long dictionaryEntryid) {
         if(Optional.ofNullable(dictionaryEntryid).isEmpty()) {

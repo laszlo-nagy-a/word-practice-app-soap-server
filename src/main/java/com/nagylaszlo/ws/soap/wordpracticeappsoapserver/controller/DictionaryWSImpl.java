@@ -39,6 +39,6 @@ public class DictionaryWSImpl implements DictionaryWS {
 
     @Override
     public boolean deleteDictionaryEntry(Long dictionaryEntryid) {
-        return false;
+        return dictionaryEntryService.delete(dictionaryEntryid);
     }
 }
