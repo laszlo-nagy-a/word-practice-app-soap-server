@@ -1,7 +1,7 @@
 package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller.inteface;
 
 
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.reponse.TopicResponse;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.response.TopicResponse;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.request.TopicRequest;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;

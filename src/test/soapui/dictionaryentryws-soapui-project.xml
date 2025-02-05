@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="5656bb54-5edb-4ba0-9731-1a54f163e523" activeEnvironment="Default" name="dictionaryentryws" resourceRoot="" soapui-version="5.8.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="f126aabc-378c-483a-a408-0a9d96714b63" wsaVersion="NONE" name="DictionaryWSImplServiceSoapBinding" type="wsdl" bindingName="{http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/}DictionaryWSImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/wordpractice/dictionaryentryws?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/wordpractice/dictionaryentryws?wsdl"><con:part><con:url>http://localhost:8080/wordpractice/dictionaryentryws?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="DictionaryWSImplService" targetNamespace="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
+  <wsdl:import location="http://localhost:8080/wordpractice/dictionaryentryws?wsdl=DictionaryWS.wsdl" namespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/"></wsdl:import>
+  <wsdl:binding name="DictionaryWSImplServiceSoapBinding" type="ns1:DictionaryWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addDictionaryEntry">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addDictionaryEntry">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addDictionaryEntryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDictionaryEntry">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDictionaryEntry">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDictionaryEntryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDictionaryEntry">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteDictionaryEntry">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteDictionaryEntryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDictionaryEntry">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateDictionaryEntry">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateDictionaryEntryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDictionaryEntries">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDictionaryEntries">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDictionaryEntriesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DictionaryWSImplService">
+    <wsdl:port binding="tns:DictionaryWSImplServiceSoapBinding" name="DictionaryWSImplPort">
+      <soap:address location="http://localhost:8080/wordpractice/dictionaryentryws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/wordpractice/dictionaryentryws?wsdl=DictionaryWS.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="DictionaryWS" targetNamespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
+      <xs:element name="addDictionaryEntry" type="tns:addDictionaryEntry"/>
+      <xs:element name="addDictionaryEntryResponse" type="tns:addDictionaryEntryResponse"/>
+      <xs:element name="deleteDictionaryEntry" type="tns:deleteDictionaryEntry"/>
+      <xs:element name="deleteDictionaryEntryResponse" type="tns:deleteDictionaryEntryResponse"/>
+      <xs:element name="dictionaryEntryRequest" type="tns:dictionaryEntryRequest"/>
+      <xs:element name="dictionaryEntryResponse" type="tns:dictionaryEntryResponse"/>
+      <xs:element name="getDictionaryEntries" type="tns:getDictionaryEntries"/>
+      <xs:element name="getDictionaryEntriesResponse" type="tns:getDictionaryEntriesResponse"/>
+      <xs:element name="getDictionaryEntry" type="tns:getDictionaryEntry"/>
+      <xs:element name="getDictionaryEntryResponse" type="tns:getDictionaryEntryResponse"/>
+      <xs:element name="updateDictionaryEntry" type="tns:updateDictionaryEntry"/>
+      <xs:element name="updateDictionaryEntryResponse" type="tns:updateDictionaryEntryResponse"/>
+      <xs:complexType name="addDictionaryEntry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:dictionaryEntryRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="dictionaryEntryRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="topicId" type="xs:long"/>
+          <xs:element minOccurs="0" name="word" type="xs:string"/>
+          <xs:element minOccurs="0" name="translation" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addDictionaryEntryResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:dictionaryEntryResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="dictionaryEntryResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="topicId" type="xs:long"/>
+          <xs:element minOccurs="0" name="dictionaryEntryId" type="xs:long"/>
+          <xs:element minOccurs="0" name="word" type="xs:string"/>
+          <xs:element minOccurs="0" name="translation" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDictionaryEntry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dictionaryEntryId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDictionaryEntryResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:dictionaryEntryResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteDictionaryEntry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dictionaryEntryId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteDictionaryEntryResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateDictionaryEntry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:dictionaryEntryRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateDictionaryEntryResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:dictionaryEntryResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDictionaryEntries">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getDictionaryEntriesResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:dictionaryEntry"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="dictionaryEntry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="topic" type="tns:topic"/>
+          <xs:element minOccurs="0" name="translation" type="xs:string"/>
+          <xs:element minOccurs="0" name="word" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="topic">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="dictionaryEntryList" nillable="true" type="tns:dictionaryEntry"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addDictionaryEntryResponse">
+    <wsdl:part element="ns1:addDictionaryEntryResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateDictionaryEntryResponse">
+    <wsdl:part element="ns1:updateDictionaryEntryResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDictionaryEntryResponse">
+    <wsdl:part element="ns1:deleteDictionaryEntryResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addDictionaryEntry">
+    <wsdl:part element="ns1:addDictionaryEntry" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDictionaryEntryResponse">
+    <wsdl:part element="ns1:getDictionaryEntryResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDictionaryEntry">
+    <wsdl:part element="ns1:getDictionaryEntry" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDictionaryEntriesResponse">
+    <wsdl:part element="ns1:getDictionaryEntriesResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDictionaryEntry">
+    <wsdl:part element="ns1:deleteDictionaryEntry" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateDictionaryEntry">
+    <wsdl:part element="ns1:updateDictionaryEntry" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDictionaryEntries">
+    <wsdl:part element="ns1:getDictionaryEntries" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DictionaryWS">
+    <wsdl:operation name="addDictionaryEntry">
+      <wsdl:input message="ns1:addDictionaryEntry" name="addDictionaryEntry"></wsdl:input>
+      <wsdl:output message="ns1:addDictionaryEntryResponse" name="addDictionaryEntryResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDictionaryEntry">
+      <wsdl:input message="ns1:getDictionaryEntry" name="getDictionaryEntry"></wsdl:input>
+      <wsdl:output message="ns1:getDictionaryEntryResponse" name="getDictionaryEntryResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDictionaryEntry">
+      <wsdl:input message="ns1:deleteDictionaryEntry" name="deleteDictionaryEntry"></wsdl:input>
+      <wsdl:output message="ns1:deleteDictionaryEntryResponse" name="deleteDictionaryEntryResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDictionaryEntry">
+      <wsdl:input message="ns1:updateDictionaryEntry" name="updateDictionaryEntry"></wsdl:input>
+      <wsdl:output message="ns1:updateDictionaryEntryResponse" name="updateDictionaryEntryResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDictionaryEntries">
+      <wsdl:input message="ns1:getDictionaryEntries" name="getDictionaryEntries"></wsdl:input>
+      <wsdl:output message="ns1:getDictionaryEntriesResponse" name="getDictionaryEntriesResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/wordpractice/dictionaryentryws</con:endpoint></con:endpoints><con:operation id="7e5f4e40-5360-49b7-afb4-fbab763b7c2f" isOneWay="false" action="" name="addDictionaryEntry" bindingOperationName="addDictionaryEntry" type="Request-Response" outputName="addDictionaryEntryResponse" inputName="addDictionaryEntry" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="34653e42-f202-45c8-ba86-4a7ee481f0a4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/dictionaryentryws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <int:addDictionaryEntry>\r
+         <!--Optional:-->\r
+         <arg0>\r
+            <!--Optional:-->\r
+            <topicId>3</topicId>\r\r           
+            <!--Optional:-->\r
+            <word>six</word>\r
+            <!--Optional:-->\r
+            <translation>hat</translation>\r
+         </arg0>\r
+      </int:addDictionaryEntry>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/DictionaryWS/addDictionaryEntry"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9867e7c4-eeeb-46d9-aa19-8a2e9d4c0160" isOneWay="false" action="" name="deleteDictionaryEntry" bindingOperationName="deleteDictionaryEntry" type="Request-Response" outputName="deleteDictionaryEntryResponse" inputName="deleteDictionaryEntry" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a0264c59-52fd-4473-988a-0f0098c4ecf9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/dictionaryentryws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <int:deleteDictionaryEntry>\r
+         <!--Optional:-->\r
+         <dictionaryEntryId>?</dictionaryEntryId>\r
+      </int:deleteDictionaryEntry>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/DictionaryWS/deleteDictionaryEntry"/></con:call></con:operation><con:operation id="373e7539-9fd8-4790-9422-ebfc3ecbb11f" isOneWay="false" action="" name="getDictionaryEntries" bindingOperationName="getDictionaryEntries" type="Request-Response" outputName="getDictionaryEntriesResponse" inputName="getDictionaryEntries" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c42e284-29ef-48e1-929f-54eb329ea753" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/dictionaryentryws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <int:getDictionaryEntries/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/DictionaryWS/getDictionaryEntries"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="44b2467c-60eb-44d2-916c-e0bd3c712b41" isOneWay="false" action="" name="getDictionaryEntry" bindingOperationName="getDictionaryEntry" type="Request-Response" outputName="getDictionaryEntryResponse" inputName="getDictionaryEntry" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a4060fc6-e580-4e6b-8c0a-faed9e79387b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/dictionaryentryws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <int:getDictionaryEntry>\r
+         <!--Optional:-->\r
+         <dictionaryEntryId>?</dictionaryEntryId>\r
+      </int:getDictionaryEntry>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/DictionaryWS/getDictionaryEntry"/></con:call></con:operation><con:operation id="ef3809d9-c7dd-458e-97c4-9a62102ab131" isOneWay="false" action="" name="updateDictionaryEntry" bindingOperationName="updateDictionaryEntry" type="Request-Response" outputName="updateDictionaryEntryResponse" inputName="updateDictionaryEntry" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ccd296b4-c477-4a67-a203-0d6b8f5dc9a4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/dictionaryentryws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <int:updateDictionaryEntry>
+         <!--Optional:-->
+         <arg0>
+            <!--Optional:-->
+            <topicId>?</topicId>
+            <!--Optional:-->
+            <word>?</word>
+            <!--Optional:-->
+            <translation>?</translation>
+         </arg0>
+      </int:updateDictionaryEntry>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/DictionaryWS/updateDictionaryEntry"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

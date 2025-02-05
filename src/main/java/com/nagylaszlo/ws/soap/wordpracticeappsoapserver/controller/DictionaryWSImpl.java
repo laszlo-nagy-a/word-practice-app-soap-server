@@ -1,25 +1,34 @@
 package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller;
 
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller.inteface.DictionaryWS;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity.DictionaryEntry;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.reponse.DictionaryEntryResponse;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.response.DictionaryEntryResponse;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.request.DictionaryEntryRequest;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service.DictionaryEntryService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 // TODO: IMPLEMENT METHODS
+@Service
 public class DictionaryWSImpl implements DictionaryWS {
+
+    private final DictionaryEntryService dictionaryEntryService;
+
+    public DictionaryWSImpl(DictionaryEntryService dictionaryEntryService) {
+        this.dictionaryEntryService = dictionaryEntryService;
+    }
+
     @Override
     public DictionaryEntryResponse addDictionaryEntry(DictionaryEntryRequest dictionaryEntryRequest) {
-        return null;
+        return dictionaryEntryService.create(dictionaryEntryRequest);
     }
 
     @Override
-    public List<DictionaryEntry> getDictionaryEntries() {
-        return List.of();
+    public List<DictionaryEntryResponse> getDictionaryEntries() {
+        return dictionaryEntryService.getAll();
     }
 
     @Override
-    public DictionaryEntryResponse getDictionaryEntry(Long dictionaryEntryid) {
+    public DictionaryEntryResponse getOneDictionaryEntry(Long dictionaryEntryid) {
         return null;
     }
 

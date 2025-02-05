@@ -1,7 +1,7 @@
 package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service;
 
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity.Topic;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.reponse.TopicResponse;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.response.TopicResponse;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.request.TopicRequest;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.repository.TopicRepository;
 import io.micrometer.common.util.StringUtils;
@@ -21,12 +21,12 @@ public class TopicService {
     }
 
     public TopicResponse create(TopicRequest topicRequest) {
-        if(topicRequest == null) {
-            throw new IllegalArgumentException("The topic request must not be null");
+        if(Optional.ofNullable(topicRequest).isEmpty()) {
+            throw new IllegalArgumentException("The TopicRequest cannot be null");
         }
 
         if (StringUtils.isBlank(topicRequest.getName())) {
-            throw new IllegalArgumentException("The topic name must not be null or emtpy");
+            throw new IllegalArgumentException("The Topic must contain the name");
         }
 
         if(isExist(topicRequest)) {
@@ -61,7 +61,7 @@ public class TopicService {
     // TODO: type exception handling marshalling
     public TopicResponse get(Long topicId) {
         if(Optional.ofNullable(topicId).isEmpty()) {
-            throw new IllegalArgumentException("The topic id must not be null");
+            throw new IllegalArgumentException("The topicId cannot be null");
         }
 
         Optional<Topic> topicFound = topicRepository.findById(topicId);

@@ -1,7 +1,7 @@
 package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller;
 
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller.inteface.TopicWS;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.reponse.TopicResponse;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.response.TopicResponse;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.request.TopicRequest;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service.TopicService;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.reponse;
+package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.response;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
