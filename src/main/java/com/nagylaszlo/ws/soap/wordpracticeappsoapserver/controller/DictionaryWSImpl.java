@@ -29,7 +29,7 @@ public class DictionaryWSImpl implements DictionaryWS {
 
     @Override
     public DictionaryEntryResponse getOneDictionaryEntry(Long dictionaryEntryid) {
-        return null;
+        return dictionaryEntryService.get(dictionaryEntryid);
     }
 
     @Override

@@ -94,6 +94,29 @@ public class DictionaryEntryService {
         return dictionaryEntryResponses;
     }
 
+    public DictionaryEntryResponse get(Long dictionaryEntryid) {
+        if(Optional.ofNullable(dictionaryEntryid).isEmpty()) {
+            throw new IllegalArgumentException("The dictionaryEntryid cannot be null");
+        }
+
+        Optional<DictionaryEntry> dictionaryEntryFound = dictionaryEntryRepository.findById(dictionaryEntryid);
+
+        if(dictionaryEntryFound.isEmpty()) {
+            throw new IllegalArgumentException("The dictionaryEntryid does not exist");
+        }
+
+        DictionaryEntry dictionaryEntry = dictionaryEntryFound.get();
+
+        DictionaryEntryResponse dictionaryEntryResponse = new DictionaryEntryResponse(
+                dictionaryEntry.getTopic().getId(),
+                dictionaryEntryid,
+                dictionaryEntry.getWord(),
+                dictionaryEntry.getTranslation()
+        );
+
+        return dictionaryEntryResponse;
+    }
+
 
 
 
