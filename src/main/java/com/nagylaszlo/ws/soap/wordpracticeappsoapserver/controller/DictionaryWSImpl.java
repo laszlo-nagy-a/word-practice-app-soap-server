@@ -34,7 +34,7 @@ public class DictionaryWSImpl implements DictionaryWS {
 
     @Override
     public DictionaryEntryResponse updateDictionaryEntry(DictionaryEntryRequest dictionaryEntryRequest) {
-        return null;
+        return dictionaryEntryService.update(dictionaryEntryRequest);
     }
 
     @Override

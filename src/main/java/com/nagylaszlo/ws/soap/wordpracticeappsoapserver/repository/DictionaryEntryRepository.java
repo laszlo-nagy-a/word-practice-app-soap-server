@@ -6,8 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface DictionaryEntryRepository extends JpaRepository<DictionaryEntry, Long> {
-    //@Query("SELECT d FROM DictionaryEntry d WHERE Topic.id = :topicId")
     List<DictionaryEntry> findByTopicId(Long topicId);
+    Optional<DictionaryEntry> findByTopicIdAndWord(Long topicId, String word);
 }

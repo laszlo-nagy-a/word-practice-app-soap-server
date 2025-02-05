@@ -78,7 +78,7 @@ public class TopicService {
     }
     // TODO: type exception handling marshalling
     public TopicResponse update(TopicRequest topicRequest) {
-        if(topicRequest == null) {
+        if(Optional.ofNullable(topicRequest).isEmpty()) {
             throw new IllegalArgumentException("The topic request must not be null");
         }
 
@@ -92,12 +92,12 @@ public class TopicService {
             throw new IllegalArgumentException("The topic does not exist");
         }
 
-        Topic topic = foundTopic.get();
-        if(topic.getName().equals(topicRequest.getName())) {
-            throw new IllegalArgumentException("The topic cannot updated with the same name");
-        }
+        Topic topic = new Topic(
+                topicRequest.getId(),
+                topicRequest.getName(),
+                foundTopic.get().getDictionaryEntryList()
+        );
 
-        topic.setName(topicRequest.getName());
         Topic savedTopic = topicRepository.save(topic);
 
         return new TopicResponse(savedTopic.getId(), savedTopic.getName());

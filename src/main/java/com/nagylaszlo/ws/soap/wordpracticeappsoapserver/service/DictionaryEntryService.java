@@ -117,6 +117,48 @@ public class DictionaryEntryService {
         return dictionaryEntryResponse;
     }
 
+    public DictionaryEntryResponse update(DictionaryEntryRequest dictionaryEntryRequest) {
+        if(Optional.ofNullable(dictionaryEntryRequest).isEmpty()) {
+            throw new IllegalArgumentException("The DictionaryEntryRequest cannot be null");
+        }
+
+        if(Optional.ofNullable(dictionaryEntryRequest.getTopicId()).isEmpty()) {
+            throw new IllegalArgumentException("The DictionaryEntryRequest must contain topicId");
+        }
+
+        if(StringUtils.isBlank(dictionaryEntryRequest.getWord()) || StringUtils.isBlank(dictionaryEntryRequest.getTranslation())) {
+            throw new IllegalArgumentException("The DictionaryEntryRequest must contain word and translation");
+        }
+
+        Optional<DictionaryEntry> foundDictionaryEntry = dictionaryEntryRepository.findById(dictionaryEntryRequest.getDictionaryEntryId());
+
+        if(foundDictionaryEntry.isEmpty()) {
+            throw new IllegalArgumentException("The DictionaryEntry does not exist");
+        }
+
+        Optional<Topic> topic = topicRepository.findById(dictionaryEntryRequest.getTopicId());
+
+        if(topic.isEmpty()) {
+            throw new IllegalArgumentException("The Topic does not exist");
+        }
+
+        DictionaryEntry dictionaryEntry = new DictionaryEntry(
+                dictionaryEntryRequest.getDictionaryEntryId(),
+                dictionaryEntryRequest.getWord(),
+                dictionaryEntryRequest.getTranslation(),
+                topic.get()
+        );
+
+        DictionaryEntry savedDictionaryEntry = dictionaryEntryRepository.save(dictionaryEntry);
+
+        return new DictionaryEntryResponse(
+                savedDictionaryEntry.getTopic().getId(),
+                savedDictionaryEntry.getId(),
+                savedDictionaryEntry.getWord(),
+                savedDictionaryEntry.getTranslation()
+        );
+    }
+
 
 
 

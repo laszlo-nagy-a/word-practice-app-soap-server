@@ -183,17 +183,19 @@
       <wsdl:output message="ns1:updateTopicResponse" name="updateTopicResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/wordpractice/topicws</con:endpoint></con:endpoints><con:operation id="793c8a92-d417-4846-8da9-69778068fa27" isOneWay="false" action="" name="addTopic" bindingOperationName="addTopic" type="Request-Response" outputName="addTopicResponse" inputName="addTopic" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="47e4c94d-db71-494b-98c6-765e359a15c7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/topicws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
-   <soapenv:Header/>\r
-   <soapenv:Body>\r
-      <int:addTopic>\r
-         <!--Optional:-->\r
-         <arg0>\r
-                       <!--Optional:-->\r
-            <name>tesztt</name>\r
-         </arg0>\r
-      </int:addTopic>\r
-   </soapenv:Body>\r
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/wordpractice/topicws</con:endpoint></con:endpoints><con:operation id="793c8a92-d417-4846-8da9-69778068fa27" isOneWay="false" action="" name="addTopic" bindingOperationName="addTopic" type="Request-Response" outputName="addTopicResponse" inputName="addTopic" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="47e4c94d-db71-494b-98c6-765e359a15c7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/topicws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <int:addTopic>
+         <!--Optional:-->
+         <arg0>
+                       <!--Optional:-->
+            <id>?</id>
+            <!--Optional:-->
+            <name>tesztt</name>
+         </arg0>
+      </int:addTopic>
+   </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/TopicWS/addTopic"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="8f401a5a-ad20-4ff1-9c15-288108b67f4e" isOneWay="false" action="" name="deleteTopic" bindingOperationName="deleteTopic" type="Request-Response" outputName="deleteTopicResponse" inputName="deleteTopic" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="875bcedf-5170-4b0b-8f9a-8afa3ad4bd48" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/topicws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
@@ -215,17 +217,17 @@
    <soapenv:Body>\r
       <int:getTopics/>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/TopicWS/getTopics"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b9c4e426-1e7a-40a7-8b0d-dc8dd63df568" isOneWay="false" action="" name="updateTopic" bindingOperationName="updateTopic" type="Request-Response" outputName="updateTopicResponse" inputName="updateTopic" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="be409bfd-916d-407f-b018-18010e511176" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/topicws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/TopicWS/getTopics"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b9c4e426-1e7a-40a7-8b0d-dc8dd63df568" isOneWay="false" action="" name="updateTopic" bindingOperationName="updateTopic" type="Request-Response" outputName="updateTopicResponse" inputName="updateTopic" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="be409bfd-916d-407f-b018-18010e511176" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/topicws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <int:updateTopic>\r
          <!--Optional:-->\r
          <arg0>\r
             <!--Optional:-->\r
-            <id>?</id>\r
+            <id>1</id>\r
             <!--Optional:-->\r
-            <name>?</name>\r
+            <name>egyesModified</name>\r
          </arg0>\r
       </int:updateTopic>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/TopicWS/updateTopic"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/TopicWS/updateTopic"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

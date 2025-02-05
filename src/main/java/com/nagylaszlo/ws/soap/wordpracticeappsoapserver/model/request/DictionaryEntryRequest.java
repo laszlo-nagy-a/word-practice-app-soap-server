@@ -12,6 +12,7 @@ import lombok.Setter;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DictionaryEntryRequest {
+    private Long dictionaryEntryId;
     private Long topicId;
     private String word;
     private String translation;
