@@ -7,6 +7,7 @@ import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.response.Dictionar
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.repository.DictionaryEntryRepository;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.repository.TopicRepository;
 import io.micrometer.common.util.StringUtils;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -171,16 +172,33 @@ public class DictionaryEntryService {
 
         return false;
     }
-    /*
-    public DictionaryEntryResponse getOneDictionaryEntry(Long dictionaryEntryid) {
-        if(Optional.ofNullable(dictionaryEntryid).isEmpty()) {
-            throw new IllegalArgumentException("The dictionaryEntryId cannot be null");
+
+    @Transactional
+    public List<DictionaryEntryResponse> getAllDictionaryEntriesWithinTopic(Long topicId) {
+        if(Optional.ofNullable(topicId).isEmpty()) {
+            throw new IllegalArgumentException("The topicId cannot be null");
         }
 
-        Optional dictionaryEntryFound = dictionaryEntryRepository.findById(dictionaryEntryid);
+        List<DictionaryEntry> dictionaryEntryList = dictionaryEntryRepository.findByTopicId(topicId);
 
+        if(dictionaryEntryList == null || dictionaryEntryList.isEmpty()) {
+            throw new IllegalArgumentException("In the topic there is no DictionaryWord entry");
+        }
 
+        List<DictionaryEntryResponse> dictionaryEntryResponseList = new ArrayList<>();
+        dictionaryEntryList.forEach(
+                dictionaryEntry -> {
+                    dictionaryEntryResponseList.add(
+                            new DictionaryEntryResponse(
+                                dictionaryEntry.getTopic().getId(),
+                                dictionaryEntry.getId(),
+                                dictionaryEntry.getWord(),
+                                dictionaryEntry.getTranslation()
+                            )
+                    );
+                }
+        );
+
+        return dictionaryEntryResponseList;
     }
-
-     */
 }

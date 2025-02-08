@@ -2,6 +2,7 @@ package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.config;
 
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller.DictionaryWSImpl;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller.TopicWSImpl;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller.WordPracticeWSImpl;
 import org.apache.cxf.Bus;
 import jakarta.xml.ws.Endpoint;
 import org.apache.cxf.jaxws.EndpointImpl;
@@ -14,10 +15,12 @@ public class WebServiceConfig {
 
     private final TopicWSImpl topicController;
     private final DictionaryWSImpl dictionaryController;
+    private final WordPracticeWSImpl wordPracticeController;
 
-    public WebServiceConfig(TopicWSImpl topicController, DictionaryWSImpl dictionaryController) {
+    public WebServiceConfig(TopicWSImpl topicController, DictionaryWSImpl dictionaryController, WordPracticeWSImpl wordController) {
         this.topicController = topicController;
         this.dictionaryController = dictionaryController;
+        this.wordPracticeController = wordController;
     }
 
     @Autowired
@@ -35,6 +38,14 @@ public class WebServiceConfig {
     public Endpoint dictionaryEntryEndpoint(DictionaryWSImpl dictionaryController) {
         EndpointImpl endpoint = new EndpointImpl(bus, dictionaryController);
         endpoint.publish("/dictionaryentryws");
+
+        return endpoint;
+    }
+
+    @Bean
+    public Endpoint wordPracticeEndpoint(WordPracticeWSImpl wordPracticeController) {
+        EndpointImpl endpoint = new EndpointImpl(bus, wordPracticeController);
+        endpoint.publish("/wordpracticews");
 
         return endpoint;
     }

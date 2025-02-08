@@ -1,27 +1,22 @@
 package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
+@Entity
 @Getter
 @Setter
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
-public class DictionaryEntry {
-
-    public DictionaryEntry(String word) {}
-
+public class WordPractice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String word;
-    private String translation;
     @ManyToOne
     @JoinColumn(name = "topic_id")
     private Topic topic;
-
+    private Long topicWordCount;
+    private Long goodAnswers;
+    private LocalDateTime startTime;
 }

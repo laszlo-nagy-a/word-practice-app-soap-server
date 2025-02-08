@@ -33,6 +33,11 @@ public class DictionaryWSImpl implements DictionaryWS {
     }
 
     @Override
+    public List<DictionaryEntryResponse> getAllDictionaryEntriesWithinTopic(Long topicId) {
+        return dictionaryEntryService.getAllDictionaryEntriesWithinTopic(topicId);
+    }
+
+    @Override
     public DictionaryEntryResponse updateDictionaryEntry(DictionaryEntryRequest dictionaryEntryRequest) {
         return dictionaryEntryService.update(dictionaryEntryRequest);
     }
@@ -41,4 +46,7 @@ public class DictionaryWSImpl implements DictionaryWS {
     public boolean deleteDictionaryEntry(Long dictionaryEntryid) {
         return dictionaryEntryService.delete(dictionaryEntryid);
     }
+
+
+
 }

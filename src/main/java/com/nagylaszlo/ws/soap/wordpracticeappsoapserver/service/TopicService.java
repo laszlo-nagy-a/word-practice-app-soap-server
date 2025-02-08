@@ -119,5 +119,4 @@ public class TopicService {
     private Boolean isExist(TopicRequest topicRequest) {
         return topicRepository.findByName(topicRequest.getName()).isPresent();
     }
-
 }

@@ -12,3 +12,12 @@ CREATE TABLE dictionary_entry(
     topic_id BIGINT NOT NULL,
     FOREIGN KEY (topic_id) REFERENCES topic(id)
 );
+
+CREATE TABLE word_practice(
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    topic_id BIGINT NOT NULL,
+    topic_word_count BIGINT,
+    good_answers BIGINT,
+    start_time DATETIME,
+    FOREIGN KEY (topic_id) REFERENCES topic(id)
+);
