@@ -1,4 +1,4 @@
-package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.response;
+package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.request;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -10,8 +10,8 @@ import lombok.Setter;
 @Setter
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class WordPracticeResponse {
+public class DictionaryEntryAnswer {
     private Long wordPracticeId;
     private Long dictionaryEntryId;
-    private Long totalWordCount;
+    private String answer;
 }

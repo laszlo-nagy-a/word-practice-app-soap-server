@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -23,5 +26,17 @@ public class DictionaryEntry {
     @ManyToOne
     @JoinColumn(name = "topic_id")
     private Topic topic;
+    @ManyToMany(
+            mappedBy = "dictionaryEntryList",
+            fetch = FetchType.LAZY
+    )
+    private Set<WordPractice> wordPracticeList;
+
+    public DictionaryEntry(Long id, String word, String translation, Topic topic) {
+            this.id = id;
+            this.word = word;
+            this.translation = translation;
+            this.topic = topic;
+    }
 
 }

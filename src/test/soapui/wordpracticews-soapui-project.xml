@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="57255eba-6674-4fb7-8818-509a669d04c6" activeEnvironment="Default" name="wordpracticews" resourceRoot="" soapui-version="5.8.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="37d03d8a-3d40-4d1a-8d4b-6be32be331de" wsaVersion="NONE" name="WordPracticeWSImplServiceSoapBinding" type="wsdl" bindingName="{http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/}WordPracticeWSImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/wordpractice/wordpracticews?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/wordpractice/wordpracticews?wsdl"><con:part><con:url>http://localhost:8080/wordpractice/wordpracticews?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="WordPracticeWSImplService" targetNamespace="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
+<con:soapui-project id="57255eba-6674-4fb7-8818-509a669d04c6" activeEnvironment="Default" name="wordpracticews" resourceRoot="" soapui-version="5.8.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="37d03d8a-3d40-4d1a-8d4b-6be32be331de" wsaVersion="NONE" name="WordPracticeWSImplServiceSoapBinding" type="wsdl" bindingName="{http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/}WordPracticeWSImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/wordpractice/wordpracticews?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/wordpractice/wordpracticews?wsdl"><con:part><con:url>http://localhost:8080/wordpractice/wordpracticews?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="WordPracticeWSImplService" targetNamespace="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
   <wsdl:import location="http://localhost:8080/wordpractice/wordpracticews?wsdl=WordPracticeWS.wsdl" namespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/"></wsdl:import>
   <wsdl:binding name="WordPracticeWSImplServiceSoapBinding" type="ns1:WordPracticeWS">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="startPractice">
+    <wsdl:operation name="attempt">
       <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="startPractice">
+      <wsdl:input name="attempt">
         <soap:body use="literal"/>
       </wsdl:input>
-      <wsdl:output name="startPracticeResponse">
+      <wsdl:output name="attemptResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="practiceIni">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="practiceIni">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="practiceIniResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
@@ -21,11 +30,38 @@
 </wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/wordpractice/wordpracticews?wsdl=WordPracticeWS.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="WordPracticeWS" targetNamespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
   <wsdl:types>
     <xs:schema elementFormDefault="unqualified" targetNamespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
-      <xs:element name="startPractice" type="tns:startPractice"/>
-      <xs:element name="startPracticeResponse" type="tns:startPracticeResponse"/>
+      <xs:element name="attempt" type="tns:attempt"/>
+      <xs:element name="attemptResponse" type="tns:attemptResponse"/>
+      <xs:element name="dictionaryEntryAnswer" type="tns:dictionaryEntryAnswer"/>
+      <xs:element name="dictionaryEntryQuestion" type="tns:dictionaryEntryQuestion"/>
+      <xs:element name="practiceIni" type="tns:practiceIni"/>
+      <xs:element name="practiceIniResponse" type="tns:practiceIniResponse"/>
       <xs:element name="wordPracticeRequest" type="tns:wordPracticeRequest"/>
       <xs:element name="wordPracticeResponse" type="tns:wordPracticeResponse"/>
-      <xs:complexType name="startPractice">
+      <xs:complexType name="attempt">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:dictionaryEntryAnswer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="dictionaryEntryAnswer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="wordPracticeId" type="xs:long"/>
+          <xs:element minOccurs="0" name="dictionaryEntryId" type="xs:long"/>
+          <xs:element minOccurs="0" name="answer" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="attemptResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:dictionaryEntryQuestion"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="dictionaryEntryQuestion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="wordPracticeId" type="xs:long"/>
+          <xs:element minOccurs="0" name="dictionaryEntryId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="practiceIni">
         <xs:sequence>
           <xs:element minOccurs="0" name="arg0" type="tns:wordPracticeRequest"/>
         </xs:sequence>
@@ -35,7 +71,7 @@
           <xs:element minOccurs="0" name="topicId" type="xs:long"/>
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="startPracticeResponse">
+      <xs:complexType name="practiceIniResponse">
         <xs:sequence>
           <xs:element minOccurs="0" name="gameId" type="tns:wordPracticeResponse"/>
         </xs:sequence>
@@ -43,31 +79,58 @@
       <xs:complexType name="wordPracticeResponse">
         <xs:sequence>
           <xs:element minOccurs="0" name="wordPracticeId" type="xs:long"/>
+          <xs:element minOccurs="0" name="dictionaryEntryId" type="xs:long"/>
+          <xs:element minOccurs="0" name="totalWordCount" type="xs:long"/>
         </xs:sequence>
       </xs:complexType>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="startPractice">
-    <wsdl:part element="ns1:startPractice" name="parameters"></wsdl:part>
+  <wsdl:message name="attemptResponse">
+    <wsdl:part element="ns1:attemptResponse" name="parameters"></wsdl:part>
   </wsdl:message>
-  <wsdl:message name="startPracticeResponse">
-    <wsdl:part element="ns1:startPracticeResponse" name="parameters"></wsdl:part>
+  <wsdl:message name="attempt">
+    <wsdl:part element="ns1:attempt" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="practiceIni">
+    <wsdl:part element="ns1:practiceIni" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="practiceIniResponse">
+    <wsdl:part element="ns1:practiceIniResponse" name="parameters"></wsdl:part>
   </wsdl:message>
   <wsdl:portType name="WordPracticeWS">
-    <wsdl:operation name="startPractice">
-      <wsdl:input message="ns1:startPractice" name="startPractice"></wsdl:input>
-      <wsdl:output message="ns1:startPracticeResponse" name="startPracticeResponse"></wsdl:output>
+    <wsdl:operation name="attempt">
+      <wsdl:input message="ns1:attempt" name="attempt"></wsdl:input>
+      <wsdl:output message="ns1:attemptResponse" name="attemptResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="practiceIni">
+      <wsdl:input message="ns1:practiceIni" name="practiceIni"></wsdl:input>
+      <wsdl:output message="ns1:practiceIniResponse" name="practiceIniResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/wordpractice/wordpracticews</con:endpoint></con:endpoints><con:operation id="f93eff9a-a838-4c20-9387-9577a0d280d9" isOneWay="false" action="" name="startPractice" bindingOperationName="startPractice" type="Request-Response" outputName="startPracticeResponse" inputName="startPractice" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1bb88055-e166-43f2-9dcd-67d5fbb34a9c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/wordpracticews</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/wordpractice/wordpracticews</con:endpoint></con:endpoints><con:operation id="f93eff9a-a838-4c20-9387-9577a0d280d9" isOneWay="false" action="" name="practiceIni" bindingOperationName="practiceIni" type="Request-Response" outputName="practiceIniResponse" inputName="practiceIni" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1bb88055-e166-43f2-9dcd-67d5fbb34a9c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/wordpracticews</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <int:practiceIni>
+         <!--Optional:-->
+         <arg0>
+            <!--Optional:-->
+            <topicId>1</topicId>
+         </arg0>
+      </int:practiceIni>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/WordPracticeWS/startPractice"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="87b3f777-6c4a-41b0-88f6-e8c548712543" isOneWay="false" action="" name="attempt" bindingOperationName="attempt" type="Request-Response" outputName="attemptResponse" inputName="attempt" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c018016-d526-446c-bdae-f2750019dc08" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/wordpracticews</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
-      <int:startPractice>\r
+      <int:attempt>\r
          <!--Optional:-->\r
          <arg0>\r
             <!--Optional:-->\r
-            <topicId>1</topicId>\r
+            <wordPracticeId>16</wordPracticeId>\r
+            <!--Optional:-->\r
+            <dictionaryEntryId>12</dictionaryEntryId>\r
+            <!--Optional:-->\r
+            <answer>egy</answer>\r
          </arg0>\r
-      </int:startPractice>\r
+      </int:attempt>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/WordPracticeWS/startPractice"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/WordPracticeWS/attempt"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

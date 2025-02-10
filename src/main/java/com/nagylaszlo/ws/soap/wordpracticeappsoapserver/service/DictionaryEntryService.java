@@ -2,10 +2,10 @@ package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service;
 
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity.DictionaryEntry;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity.Topic;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.request.DictionaryEntryRequest;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.response.DictionaryEntryResponse;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.repository.DictionaryEntryRepository;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.repository.TopicRepository;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.request.DictionaryEntryRequest;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.response.DictionaryEntryResponse;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.repository.DictionaryEntryRepository;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.repository.TopicRepository;
 import io.micrometer.common.util.StringUtils;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

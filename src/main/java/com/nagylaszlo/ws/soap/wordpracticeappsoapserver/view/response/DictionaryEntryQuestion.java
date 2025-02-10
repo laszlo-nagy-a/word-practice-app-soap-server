@@ -1,5 +1,4 @@
-package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.request;
-//TODO: IMPLEMENT THE CLASS
+package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.response;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -11,9 +10,7 @@ import lombok.Setter;
 @Setter
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DictionaryEntryRequest {
+public class DictionaryEntryQuestion {
+    private Long wordPracticeId;
     private Long dictionaryEntryId;
-    private Long topicId;
-    private String word;
-    private String translation;
 }

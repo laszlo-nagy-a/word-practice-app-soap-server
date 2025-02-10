@@ -1,9 +1,9 @@
 package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service;
 
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity.Topic;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.response.TopicResponse;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.request.TopicRequest;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.repository.TopicRepository;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.response.TopicResponse;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.request.TopicRequest;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.repository.TopicRepository;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.stereotype.Service;
 

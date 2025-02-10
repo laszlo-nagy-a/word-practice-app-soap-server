@@ -1,8 +1,8 @@
 package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller;
 
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.controller.inteface.DictionaryWS;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.response.DictionaryEntryResponse;
-import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.request.DictionaryEntryRequest;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.response.DictionaryEntryResponse;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.request.DictionaryEntryRequest;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service.DictionaryEntryService;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +46,4 @@ public class DictionaryWSImpl implements DictionaryWS {
     public boolean deleteDictionaryEntry(Long dictionaryEntryid) {
         return dictionaryEntryService.delete(dictionaryEntryid);
     }
-
-
-
 }

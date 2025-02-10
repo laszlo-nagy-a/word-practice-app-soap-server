@@ -1,4 +1,4 @@
-package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.repository;
+package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.repository;
 
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity.Topic;
 import org.springframework.data.jpa.repository.JpaRepository;
