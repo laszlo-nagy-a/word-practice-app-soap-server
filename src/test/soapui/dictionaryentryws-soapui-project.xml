@@ -224,14 +224,11 @@
       <int:addDictionaryEntry>
          <!--Optional:-->
          <arg0>        
+             <topicId>9</topicId>
             <!--Optional:-->
-            <dictionaryEntryId>?</dictionaryEntryId>
+            <word>carpet</word>
             <!--Optional:-->
-            <topicId>1</topicId>
-            <!--Optional:-->
-            <word>two</word>
-            <!--Optional:-->
-            <translation>kettő</translation>
+            <translation>szőnyeg</translation>
          </arg0>
       </int:addDictionaryEntry>
    </soapenv:Body>
@@ -333,7 +330,7 @@
    <soapenv:Body>\r
       <int:getAllDictionaryEntriesWithinTopic>\r
          <!--Optional:-->\r
-         <topicId>1</topicId>\r
+         <topicId>9</topicId>\r
       </int:getAllDictionaryEntriesWithinTopic>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/DictionaryWS/getAllDictionaryEntriesWithinTopic"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

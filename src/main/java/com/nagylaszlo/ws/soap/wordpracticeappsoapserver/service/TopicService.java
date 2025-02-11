@@ -1,6 +1,8 @@
 package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service;
 
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity.Topic;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service.exception.EntityNotFoundException;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service.exception.IncorrectInputException;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.response.TopicResponse;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.request.TopicRequest;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.repository.TopicRepository;
@@ -20,36 +22,25 @@ public class TopicService {
         this.topicRepository = topicRepository;
     }
 
-    public TopicResponse create(TopicRequest topicRequest) {
-        if(Optional.ofNullable(topicRequest).isEmpty()) {
-            throw new IllegalArgumentException("The TopicRequest cannot be null");
-        }
-
-        if (StringUtils.isBlank(topicRequest.getName())) {
-            throw new IllegalArgumentException("The Topic must contain the name");
-        }
-
-        if(isExist(topicRequest)) {
-            throw new IllegalArgumentException("The topic already exists");
-        }
+    public TopicResponse create(TopicRequest topicRequest) throws IncorrectInputException {
+        this.checkInputIsValid(topicRequest);
+        this.entityIsExist(topicRequest);
 
         Topic topic = new Topic();
         topic.setName(topicRequest.getName());
         Topic savedTopic = topicRepository.save(topic);
-        TopicResponse topicResponse = new TopicResponse(savedTopic.getId(), savedTopic.getName());
 
-        return topicResponse;
+        return new TopicResponse(savedTopic.getId(), savedTopic.getName());
     }
 
-    public List<TopicResponse> getAll() {
+    public List<TopicResponse> getAll() throws EntityNotFoundException {
         List<Topic> allTopic = topicRepository.findAll();
 
-        if(allTopic == null || allTopic.isEmpty()) {
-            throw new IllegalArgumentException("The topic list is empty");
+        if(allTopic.isEmpty()) {
+            throw new EntityNotFoundException("The Topic list is empty! Add Topics to list with TopicWSService.");
         }
 
         List<TopicResponse> topicResponseList = new ArrayList<>();
-
         allTopic.forEach(
                 topic ->
                 topicResponseList.add(new TopicResponse(topic.getId(), topic.getName())
@@ -58,38 +49,27 @@ public class TopicService {
 
         return topicResponseList;
     }
-    // TODO: type exception handling marshalling
-    public TopicResponse get(Long topicId) {
-        if(Optional.ofNullable(topicId).isEmpty()) {
-            throw new IllegalArgumentException("The topicId cannot be null");
-        }
+
+    public TopicResponse get(Long topicId) throws EntityNotFoundException, IncorrectInputException {
+        this.checkInputIsValid(topicId);
 
         Optional<Topic> topicFound = topicRepository.findById(topicId);
-
         if(topicFound.isEmpty()) {
-            throw new IllegalArgumentException("The topic is not found");
+            throw new EntityNotFoundException("Topic not found with id: " + topicId + ".");
         }
 
         Topic topic = topicFound.get();
 
-        TopicResponse response = new TopicResponse(topic.getId(), topic.getName());
-
-        return response;
+        return new TopicResponse(topic.getId(), topic.getName());
     }
-    // TODO: type exception handling marshalling
-    public TopicResponse update(TopicRequest topicRequest) {
-        if(Optional.ofNullable(topicRequest).isEmpty()) {
-            throw new IllegalArgumentException("The topic request must not be null");
-        }
 
-        if(StringUtils.isBlank(topicRequest.getName())) {
-            throw new IllegalArgumentException("The topic name must not be null or emtpy");
-        }
+    public TopicResponse update(TopicRequest topicRequest) throws EntityNotFoundException, IncorrectInputException {
+        this.checkInputIsValid(topicRequest);
 
         Optional<Topic> foundTopic = topicRepository.findById(topicRequest.getId());
 
         if(foundTopic.isEmpty()) {
-            throw new IllegalArgumentException("The topic does not exist");
+            throw new EntityNotFoundException("The Topic which meant to be updated does not exist!");
         }
 
         Topic topic = new Topic(
@@ -103,10 +83,8 @@ public class TopicService {
         return new TopicResponse(savedTopic.getId(), savedTopic.getName());
     }
 
-    public boolean delete(Long topicId) {
-        if(Optional.ofNullable(topicId).isEmpty()) {
-            throw new IllegalArgumentException("The topic id must not be null");
-        }
+    public boolean delete(Long topicId) throws IncorrectInputException {
+        this.checkInputIsValid(topicId);
 
         if(topicRepository.findById(topicId).isPresent()) {
             topicRepository.deleteById(topicId);
@@ -116,7 +94,21 @@ public class TopicService {
         return false;
     }
 
-    private Boolean isExist(TopicRequest topicRequest) {
-        return topicRepository.findByName(topicRequest.getName()).isPresent();
+    private void entityIsExist(TopicRequest topicRequest) throws IncorrectInputException {
+        if(topicRepository.findByName(topicRequest.getName()).isPresent()) {
+            throw new IncorrectInputException("The Topic name already exists: " + topicRequest.getName() + ". try with different one!");
+        }
+    }
+
+    private void checkInputIsValid(Object object) throws IncorrectInputException {
+        if(Optional.ofNullable(object).isEmpty()) {
+            throw new IncorrectInputException("The given entity cannot be null! The given entity with null: " + object.getClass().getName() + ".");
+        }
+
+        if(object instanceof TopicRequest topicRequest) {
+            if (StringUtils.isBlank(topicRequest.getName())) {
+                throw new IncorrectInputException("The TopicRequest must contain the name!");
+            }
+        }
     }
 }

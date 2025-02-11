@@ -86,7 +86,6 @@ public class WordPracticeService {
         return wordPracticeResponse;
     }
 
-    // TODO: átnevezni answer
     @Transactional
     public DictionaryEntryQuestion attempt(DictionaryEntryAnswer answer) {
 
@@ -117,7 +116,6 @@ public class WordPracticeService {
             throw new RuntimeException("The questioned word was not that. Try with the correct DictionaryEntryId: " + wordPracticeCurrentDictionaryEntryId);
         }
 
-        // TODO: átnevezni answe
         String solution = answer.getAnswer();
 
         if(StringUtils.isBlank(solution)) {

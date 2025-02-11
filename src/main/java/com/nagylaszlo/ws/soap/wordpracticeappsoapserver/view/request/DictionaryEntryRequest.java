@@ -1,5 +1,4 @@
 package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.request;
-//TODO: IMPLEMENT THE CLASS
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

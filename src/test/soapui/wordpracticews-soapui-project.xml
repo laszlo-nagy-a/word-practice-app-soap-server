@@ -114,23 +114,24 @@
          <!--Optional:-->
          <arg0>
             <!--Optional:-->
-            <topicId>1</topicId>
+            <topicId>9</topicId>
          </arg0>
       </int:practiceIni>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/WordPracticeWS/startPractice"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="87b3f777-6c4a-41b0-88f6-e8c548712543" isOneWay="false" action="" name="attempt" bindingOperationName="attempt" type="Request-Response" outputName="attemptResponse" inputName="attempt" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c018016-d526-446c-bdae-f2750019dc08" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/wordpracticews</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
-      <int:attempt>\r
-         <!--Optional:-->\r
-         <arg0>\r
-            <!--Optional:-->\r
-            <wordPracticeId>16</wordPracticeId>\r
-            <!--Optional:-->\r
-            <dictionaryEntryId>12</dictionaryEntryId>\r
-            <!--Optional:-->\r
-            <answer>egy</answer>\r
-         </arg0>\r
-      </int:attempt>\r
+      <int:attempt>
+         <!--Optional:-->
+         <arg0>
+            <!--Optional:-->
+            <wordPracticeId>20</wordPracticeId>
+            <!--Optional:-->
+            <dictionaryEntryId>9</dictionaryEntryId>
+            <!--Optional:-->
+            <answer>sajt</answer>
+         </arg0>
+      </int:attempt>
+
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/WordPracticeWS/attempt"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/WordPracticeWS/attempt"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

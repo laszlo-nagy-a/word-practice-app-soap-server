@@ -2,6 +2,7 @@ package com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service;
 
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity.DictionaryEntry;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.entity.Topic;
+import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service.exception.IncorrectInputException;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.request.DictionaryEntryRequest;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.view.response.DictionaryEntryResponse;
 import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.model.repository.DictionaryEntryRepository;

@@ -7,7 +7,6 @@ import com.nagylaszlo.ws.soap.wordpracticeappsoapserver.service.DictionaryEntryS
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-// TODO: IMPLEMENT METHODS
 @Service
 public class DictionaryWSImpl implements DictionaryWS {
 
@@ -28,8 +27,8 @@ public class DictionaryWSImpl implements DictionaryWS {
     }
 
     @Override
-    public DictionaryEntryResponse getOneDictionaryEntry(Long dictionaryEntryid) {
-        return dictionaryEntryService.get(dictionaryEntryid);
+    public DictionaryEntryResponse getOneDictionaryEntry(Long dictionaryEntryId) {
+        return dictionaryEntryService.get(dictionaryEntryId);
     }
 
     @Override
@@ -43,7 +42,7 @@ public class DictionaryWSImpl implements DictionaryWS {
     }
 
     @Override
-    public boolean deleteDictionaryEntry(Long dictionaryEntryid) {
-        return dictionaryEntryService.delete(dictionaryEntryid);
+    public boolean deleteDictionaryEntry(Long dictionaryEntryId) {
+        return dictionaryEntryService.delete(dictionaryEntryId);
     }
 }
