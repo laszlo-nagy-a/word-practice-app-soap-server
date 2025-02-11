@@ -11,6 +11,9 @@
       <wsdl:output name="addTopicResponse">
         <soap:body use="literal"/>
       </wsdl:output>
+      <wsdl:fault name="IncorrectInputException">
+        <soap:fault name="IncorrectInputException" use="literal"/>
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="deleteTopic">
       <soap:operation soapAction="" style="document"/>
@@ -20,6 +23,9 @@
       <wsdl:output name="deleteTopicResponse">
         <soap:body use="literal"/>
       </wsdl:output>
+      <wsdl:fault name="IncorrectInputException">
+        <soap:fault name="IncorrectInputException" use="literal"/>
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="getOneTopic">
       <soap:operation soapAction="" style="document"/>
@@ -29,6 +35,12 @@
       <wsdl:output name="getOneTopicResponse">
         <soap:body use="literal"/>
       </wsdl:output>
+      <wsdl:fault name="IncorrectInputException">
+        <soap:fault name="IncorrectInputException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="EntityNotFoundException">
+        <soap:fault name="EntityNotFoundException" use="literal"/>
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="getTopics">
       <soap:operation soapAction="" style="document"/>
@@ -38,6 +50,9 @@
       <wsdl:output name="getTopicsResponse">
         <soap:body use="literal"/>
       </wsdl:output>
+      <wsdl:fault name="EntityNotFoundException">
+        <soap:fault name="EntityNotFoundException" use="literal"/>
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="updateTopic">
       <soap:operation soapAction="" style="document"/>
@@ -47,6 +62,12 @@
       <wsdl:output name="updateTopicResponse">
         <soap:body use="literal"/>
       </wsdl:output>
+      <wsdl:fault name="IncorrectInputException">
+        <soap:fault name="IncorrectInputException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="EntityNotFoundException">
+        <soap:fault name="EntityNotFoundException" use="literal"/>
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="TopicWSImplService">
@@ -56,7 +77,7 @@
   </wsdl:service>
 </wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/wordpractice/topicws?wsdl=TopicWS.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="TopicWS" targetNamespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
   <wsdl:types>
-    <xs:schema elementFormDefault="unqualified" targetNamespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
       <xs:element name="TopicResponse" type="tns:topicResponse"/>
       <xs:element name="addTopic" type="tns:addTopic"/>
       <xs:element name="addTopicResponse" type="tns:addTopicResponse"/>
@@ -129,6 +150,18 @@
           <xs:element minOccurs="0" name="return" type="tns:topicResponse"/>
         </xs:sequence>
       </xs:complexType>
+      <xs:element name="IncorrectInputException" type="tns:IncorrectInputException"/>
+      <xs:complexType name="IncorrectInputException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="EntityNotFoundException" type="tns:EntityNotFoundException"/>
+      <xs:complexType name="EntityNotFoundException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="addTopic">
@@ -158,6 +191,12 @@
   <wsdl:message name="getOneTopic">
     <wsdl:part element="ns1:getOneTopic" name="parameters"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="EntityNotFoundException">
+    <wsdl:part element="ns1:EntityNotFoundException" name="EntityNotFoundException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IncorrectInputException">
+    <wsdl:part element="ns1:IncorrectInputException" name="IncorrectInputException"></wsdl:part>
+  </wsdl:message>
   <wsdl:message name="getOneTopicResponse">
     <wsdl:part element="ns1:getOneTopicResponse" name="parameters"></wsdl:part>
   </wsdl:message>
@@ -165,22 +204,29 @@
     <wsdl:operation name="addTopic">
       <wsdl:input message="ns1:addTopic" name="addTopic"></wsdl:input>
       <wsdl:output message="ns1:addTopicResponse" name="addTopicResponse"></wsdl:output>
+      <wsdl:fault message="ns1:IncorrectInputException" name="IncorrectInputException"></wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="deleteTopic">
       <wsdl:input message="ns1:deleteTopic" name="deleteTopic"></wsdl:input>
       <wsdl:output message="ns1:deleteTopicResponse" name="deleteTopicResponse"></wsdl:output>
+      <wsdl:fault message="ns1:IncorrectInputException" name="IncorrectInputException"></wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="getOneTopic">
       <wsdl:input message="ns1:getOneTopic" name="getOneTopic"></wsdl:input>
       <wsdl:output message="ns1:getOneTopicResponse" name="getOneTopicResponse"></wsdl:output>
+      <wsdl:fault message="ns1:IncorrectInputException" name="IncorrectInputException"></wsdl:fault>
+      <wsdl:fault message="ns1:EntityNotFoundException" name="EntityNotFoundException"></wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="getTopics">
       <wsdl:input message="ns1:getTopics" name="getTopics"></wsdl:input>
       <wsdl:output message="ns1:getTopicsResponse" name="getTopicsResponse"></wsdl:output>
+      <wsdl:fault message="ns1:EntityNotFoundException" name="EntityNotFoundException"></wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="updateTopic">
       <wsdl:input message="ns1:updateTopic" name="updateTopic"></wsdl:input>
       <wsdl:output message="ns1:updateTopicResponse" name="updateTopicResponse"></wsdl:output>
+      <wsdl:fault message="ns1:IncorrectInputException" name="IncorrectInputException"></wsdl:fault>
+      <wsdl:fault message="ns1:EntityNotFoundException" name="EntityNotFoundException"></wsdl:fault>
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/wordpractice/topicws</con:endpoint></con:endpoints><con:operation id="793c8a92-d417-4846-8da9-69778068fa27" isOneWay="false" action="" name="addTopic" bindingOperationName="addTopic" type="Request-Response" outputName="addTopicResponse" inputName="addTopic" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="47e4c94d-db71-494b-98c6-765e359a15c7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/topicws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">
@@ -189,7 +235,10 @@
       <int:addTopic>
          <!--Optional:-->
          <arg0>
-               <name>PUBG</name>
+               <!--Optional:-->
+            <id>1</id>
+            <!--Optional:-->
+            <name>helloworld</name>
          </arg0>
       </int:addTopic>
    </soapenv:Body>
@@ -206,7 +255,7 @@
    <soapenv:Body>\r
       <int:getOneTopic>\r
          <!--Optional:-->\r
-         <topicId>1</topicId>\r
+         <topicId>a</topicId>\r
       </int:getOneTopic>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/TopicWS/getOneTopic"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="5cac440c-6a53-4e43-a8e7-82d036f01722" isOneWay="false" action="" name="getTopics" bindingOperationName="getTopics" type="Request-Response" outputName="getTopicsResponse" inputName="getTopics" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c2e70bc4-19f4-4351-a3a3-228b5a4ea23a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wordpractice/topicws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://inteface.controller.wordpracticeappsoapserver.soap.ws.nagylaszlo.com/">\r
